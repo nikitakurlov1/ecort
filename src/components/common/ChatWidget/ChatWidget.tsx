@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
 const ChatWidget = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -53,7 +53,7 @@ const ChatWidget = () => {
           text: "Спасибо за сообщение! Наш сутинер свяжется с вами в Telegram для обсуждения деталей.",
           time: new Date().toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' })
         }
-        setMessages(prev => [...prev, agentResponse])
+        setMessages((prev: any[]) => [...prev, agentResponse])
       }, 1000)
     }
   }
@@ -67,10 +67,10 @@ const ChatWidget = () => {
     setIsOpen(false)
   }
 
-  const handleMinimize = () => {
-    setIsMinimized(true)
-    setIsOpen(false)
-  }
+  // const handleMinimize = () => {
+  //   setIsMinimized(true)
+  //   setIsOpen(false)
+  // }
 
   const handleSupportClick = () => {
     window.open('https://t.me/OneNightSupport', '_blank')

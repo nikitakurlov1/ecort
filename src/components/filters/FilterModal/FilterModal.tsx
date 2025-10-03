@@ -28,12 +28,12 @@ const FilterModal = ({ isOpen, onClose, onApply }: FilterModalProps) => {
     location: '',
     priceFrom: '',
     priceTo: '',
-    services: [],
+    services: [] as string[],
     meetingPlace: ''
   })
 
   const handleFilterChange = (key: string, value: any) => {
-    setFilters(prev => ({
+    setFilters((prev: any) => ({
       ...prev,
       [key]: value
     }))

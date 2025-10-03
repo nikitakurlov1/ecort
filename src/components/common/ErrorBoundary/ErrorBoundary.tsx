@@ -1,4 +1,5 @@
-import React, { Component, ErrorInfo, ReactNode } from 'react'
+// import React, { Component, ErrorInfo, ReactNode } from 'react'
+import { Component, ErrorInfo, ReactNode } from 'react'
 
 interface Props {
   children: ReactNode
@@ -41,12 +42,12 @@ class ErrorBoundary extends Component<Props, State> {
             >
               Обновить страницу
             </button>
-            {process.env.NODE_ENV === 'development' && this.state.error && (
+            {/* {import.meta.env.DEV && this.state.error && (
               <details className="error-boundary-details">
                 <summary>Детали ошибки (только для разработки)</summary>
                 <pre>{this.state.error.toString()}</pre>
               </details>
-            )}
+            )} */}
           </div>
         </div>
       )

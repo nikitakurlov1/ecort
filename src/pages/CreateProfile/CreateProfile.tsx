@@ -1,19 +1,30 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import Footer from '../../components/common/Footer/Footer'
 import ChatWidget from '../../components/common/ChatWidget/ChatWidget'
+// @ts-ignore
 import styles from './CreateProfile.module.css'
 
 const CreateProfile = () => {
   const navigate = useNavigate()
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<{
+    name: string;
+    age: string;
+    location: string;
+    price: string;
+    description: string;
+    services: string[];
+    languages: string[];
+    phone: string;
+    email: string;
+  }>({
     name: '',
     age: '',
     location: '',
     price: '',
     description: '',
-    services: [] as string[],
-    languages: [] as string[],
+    services: [],
+    languages: [],
     phone: '',
     email: ''
   })
@@ -35,14 +46,14 @@ const CreateProfile = () => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
-    setFormData(prev => ({
+    setFormData((prev: any) => ({
       ...prev,
       [name]: value
     }))
     
     // Clear error when user starts typing
     if (errors[name]) {
-      setErrors(prev => ({
+      setErrors((prev: any) => ({
         ...prev,
         [name]: ''
       }))
@@ -50,19 +61,19 @@ const CreateProfile = () => {
   }
 
   const handleServiceToggle = (service: string) => {
-    setFormData(prev => ({
+    setFormData((prev: any) => ({
       ...prev,
       services: prev.services.includes(service)
-        ? prev.services.filter(s => s !== service)
+        ? prev.services.filter((s: any) => s !== service)
         : [...prev.services, service]
     }))
   }
 
   const handleLanguageToggle = (language: string) => {
-    setFormData(prev => ({
+    setFormData((prev: any) => ({
       ...prev,
       languages: prev.languages.includes(language)
-        ? prev.languages.filter(l => l !== language)
+        ? prev.languages.filter((l: any) => l !== language)
         : [...prev.languages, language]
     }))
   }
